@@ -27,8 +27,8 @@ console.log(forecastArr);
   return (
     <div className='forecast'>
         <h1 className='forecast__header'>7 Day Forcast</h1>
+        <p className='forecast__header'>Scroll down to see all</p>
         <div className='forecast__container'>{forecastJSX(forecastArr)}</div>
-    
     </div>
   )
 }

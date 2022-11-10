@@ -29,19 +29,19 @@ const CurrentHighlights = ({currentWeather}) => {
     
     <div className='highlights'>
         
-        <div className='highlights__wind'>
+        <div className='highlights__wind div'>
             <h2 className='highlights__child'>Wind Status</h2>
             <img className='highlights__image highlights__child' src={Wind} alt="" />
             <p className='highlights__child'>Wind speed MPH: {windspeedmph}</p>
             <p className='highlights__child'>Wind speed KPH: {windspeedkph}</p>
         </div>
-        <div className='highlights__uv'>
+        <div className='highlights__uv div'>
             <h2 className='highlights__child'>UV Index</h2>
             <img className='highlights__image highlights__child' src={UV} alt="" />
             <h1 className='highlights__child'>{uv}</h1>
             
         </div>
-        <div className='highlights__sunrise'>
+        <div className='highlights__sunrise div'>
             <h2 className='highlights__child'>Precipitation</h2>
             <img className='highlights__image highlights__child' src={Rain} alt="" />
             <p className='highlights__child'>Rainfall in Inches: {rainin}</p>
@@ -49,23 +49,23 @@ const CurrentHighlights = ({currentWeather}) => {
         </div>
 
 
-        <div className='highlights__humidity'>
+        <div className='highlights__humidity div'>
             <h2 className='highlights__child'>Humidity</h2>
-            <img src={Water} alt="" />
+            <img className='highlights__image highlights__child' src={Water} alt="" />
             
             <p className='highlights__child'>{humidity}</p>
             <p className='highlights__child'>The dew point is 27 degrees right now</p>
         </div>
-        <div className='highlights__visibility'>
+        <div className='highlights__visibility div'>
             <h2 className='highlights__child'>Visibility</h2>
-            <img src={Eye} alt="" />
+            <img className='highlights__image highlights__child' src={Eye} alt="" />
             
             <p className='highlights__child'>Visibility in KM:{viskm}</p>
             <p className='highlights__child'>Visibility in M: {vism}</p>
         </div>
-        <div className='highlights__feels'>
+        <div className='highlights__feels div'>
             <h2 className='highlights__child'>Feels Like</h2>
-            <img src={Thermo} alt="" />
+            <img className='highlights__image highlights__child' src={Thermo} alt="" />
             
             <p className='highlights__child'>Feels like {feelslikec} °C</p>
             <p className='highlights__child'>Feels like {feelslikef} °F</p>        

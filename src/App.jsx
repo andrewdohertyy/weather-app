@@ -1,6 +1,9 @@
 import './App.scss';
 import Nav from './containers/Nav/Nav';
 import Weather from './containers/Weather/Weather';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ToDoList from './containers/ToDoList/ToDoList';
+
 
 
 function App() {
@@ -9,10 +12,16 @@ function App() {
 
 
   return (
+    <Router>
     <div className="App">
       <Nav/>
-      <Weather REACT_APP_API_KEY={REACT_APP_API_KEY}/>
+      <Routes>
+        <Route path="/" element={ <Weather REACT_APP_API_KEY={REACT_APP_API_KEY}/>}></Route>
+        <Route path="/todo" element={<ToDoList/>}></Route>
+     
+      </Routes>
     </div>
+    </Router>
     
   );
 }
