@@ -1,0 +1,66 @@
+@use "../../styles/variables" as *;
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.nav {
+  
+  border: solid 1px black;
+  border-radius: 1rem;
+  margin: 1.5rem;
+  align-items: center;
+  background-color: grey;
+  color: white;
+  
+  
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  &__title {
+    padding: 1rem;
+  }
+
+  &__image {
+    width: 1.5rem;
+    height: auto;
+  }
+  &__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__item {
+    text-decoration: none;
+    font-size: x-large;
+    padding: 1rem;
+    color: white;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+
+  .nav {
+    display: block;
+
+    &__image {
+      width: 3rem;
+
+    }
+  }
+  
+}

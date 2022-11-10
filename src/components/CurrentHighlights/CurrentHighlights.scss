@@ -1,0 +1,67 @@
+.highlights {
+    border: solid 1px black;
+    border-radius: 1rem;
+    width: 100%;
+    margin: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: grey;
+    color: white;
+    
+    
+
+    &__wind {
+        margin: 1.5rem;
+        width: 25%;
+        border: solid 1px black;
+        border-radius: 1rem;
+        padding: 1rem;
+        background-color: green;
+        
+    }
+    &__uv {
+        margin: 1.5rem;
+        width: 25%;
+        border: solid 1px black;
+        border-radius: 1rem;
+        padding: 1rem;
+        background-color: green;    }
+    &__sunrise {
+        margin: 1.5rem;
+        width: 25%;
+        border: solid 1px black;
+        border-radius: 1rem;
+        padding: 1rem;
+        background-color: green;    }
+    &__humidity {
+        margin: 1.5rem;
+        width: 25%;
+        border: solid 1px black;
+        border-radius: 1rem;
+        padding: 1rem;
+        background-color: green;    }
+    &__visibility {
+        margin: 1.5rem;
+        width: 25%;
+        border: solid 1px black;
+        border-radius: 1rem;
+        padding: 1rem;
+        background-color: green;    }
+    &__feels {
+        margin: 1.5rem;
+        width: 25%;
+        border: solid 1px black;
+        border-radius: 1rem;
+        padding: 1rem;
+        background-color: green;    }
+    &__image {
+        width: 2rem ;
+        height: auto;
+    }
+    &__child {
+        margin: 1rem;
+        
+    }
+}

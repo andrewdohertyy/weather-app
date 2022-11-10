@@ -1,0 +1,54 @@
+.forecast {
+    display: flex ;
+    flex-direction: column;
+    border: solid 1px black;
+    border-radius: 1rem;
+    margin: 1.5rem;
+    width: 45%;
+    height: 60vh;
+    color: white;
+    background-color: grey;
+
+    &__image {
+        width: 5rem; 
+        height: auto;
+        margin: 1.5rem;
+    }
+
+    &__header {
+        margin: 1.5rem;
+    }
+
+    &__list {
+        text-decoration: none;
+        margin: 1.5rem;
+        
+    }
+    &__item {
+        margin: 1rem;
+        
+    }
+    &__card{
+        margin: 1.5rem;
+        width: 60%;
+       
+    }
+    &__child {
+        margin: 1rem;
+    }
+    &__container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        overflow-y: scroll;
+    }
+    // }
+    // &__location {
+    //     margin: 1.5rem;
+    // }
+    // &__date {
+    //     margin: 1.5rem;
+    // }
+
+}
