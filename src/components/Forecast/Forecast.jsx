@@ -1,11 +1,19 @@
 import React from 'react'
 import "./Forecast.scss"
 
-const Forecast = ({forecast}) => {
+const Forecast = ({forecast, time}) => {
 
 let forecastArr = forecast.forecast.forecastday;
 
 console.log(forecastArr);
+
+let timeID;
+
+if (time >= 17 || time <= 6) {
+  timeID = 'night'
+} else {
+  timeID = 'day'
+}
 
 
   const forecastJSX = (forecastArr) => {
@@ -25,7 +33,7 @@ console.log(forecastArr);
 
   }
   return (
-    <div className='forecast'>
+    <div className='forecast' id={timeID}>
         <h1 className='forecast__header'>7 Day Forcast</h1>
         <p className='forecast__header'>Scroll down to see all</p>
         <div className='forecast__container'>{forecastJSX(forecastArr)}</div>

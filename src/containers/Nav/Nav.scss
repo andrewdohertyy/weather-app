@@ -1,26 +1,19 @@
 @use "../../styles/variables" as *;
 
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
 .nav {
-  
   border: solid 1px black;
   border-radius: 1rem;
-  margin: 1.5rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 1.5rem;
   align-items: center;
-  background: #0F2027;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
   color: white;
-  
-  
 
   &__container {
     display: flex;
@@ -48,7 +41,6 @@ background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+
     font-size: x-large;
     padding: 1rem;
     color: white;
-    
   }
 }
 
@@ -56,15 +48,32 @@ a {
   text-decoration: none;
 }
 
-@media screen and (min-width: 768px) {
+#day {
+  background-color: lightgreen;
+}
 
+#night {
+  background: #0f2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@media screen and (min-width: 768px) {
   .nav {
     display: block;
 
     &__image {
       width: 3rem;
-
     }
   }
-  
 }

@@ -1,19 +1,27 @@
 import React from 'react'
 import "./CurrentForecast.scss"
 
-const CurrentForecast = ({currentWeather}) => {
+const CurrentForecast = ({currentWeather, time}) => {
 
   let tempc=currentWeather.current.temp_c
   let tempf=currentWeather.current.temp_f
   let condition=currentWeather.current.condition.text
   let location=currentWeather.location.region
   let country=currentWeather.location.country
-  let time=currentWeather.location.localtime
+  let date=currentWeather.location.localtime
   let img= currentWeather.current.condition.icon
+
+  let timeID;
+
+  if (time >= 17 || time <= 6) {
+    timeID = 'night'
+  } else {
+    timeID = 'day'
+  }
 
 
   return (
-    <div className='current-forecast'>
+    <div className="current-forecast" id={timeID}>
       <img className='current-forecast__image child' src={img} alt="" />
       <h1 className='current-forecast__location child'>{location},   {country} </h1>
       <h2 className='current-forecast__header child '> {tempc} °C   </h2>
@@ -21,7 +29,7 @@ const CurrentForecast = ({currentWeather}) => {
       <h3 className='current-forecast__description child'>Its {condition} outside today.</h3>
       
       
-      <h3 className='current-forecast__date child'>Last Checked: {time}</h3>
+      <h3 className='current-forecast__date child'>Last Checked: {date}</h3>
     </div>
   )
 }

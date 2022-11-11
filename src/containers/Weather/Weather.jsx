@@ -5,13 +5,13 @@ import CurrentForecast from "../../components/CurrentForecast/CurrentForecast";
 import CurrentHighlights from "../../components/CurrentHighlights/CurrentHighlights";
 import Forecast from "../../components/Forecast/Forecast";
 
-const Weather = ({ REACT_APP_API_KEY }) => {
+const Weather = ({REACT_APP_API_KEY, time}) => {
   const [currentWeather, setCurrentWeather] = useState("");
   const [forecast, setForecast] = useState("");
 
   const getCurrentWeather = async () => {
     const res = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=${REACT_APP_API_KEY}&q=Manchester&aqi=no`
+      `http://api.weatherapi.com/v1/current.json?key=6e43ebee6cbc4c50a32135335221111&q=London&aqi=no`
     );
     const weatherData = await res.json();
     setCurrentWeather(weatherData);
@@ -19,18 +19,18 @@ const Weather = ({ REACT_APP_API_KEY }) => {
 
   const getForecast = async () => {
     const res = await fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=${REACT_APP_API_KEY}&q=Manchester&days=7&aqi=yes&alerts=yes`
+      `http://api.weatherapi.com/v1/forecast.json?key=6e43ebee6cbc4c50a32135335221111&q=London&days=7&aqi=yes&alerts=yes`
     );
     const forecastData = await res.json();
     setForecast(forecastData);
   };
 
-  // const componentDidMount =() => {
-  //   if (navigator.geolocation) {
-  //   console.log("GeoLocation is Available!");
-  //   } else {
-  //   console.log("No");;
-  //   }}
+  const componentDidMount =() => {
+    if (navigator.geolocation) {
+    console.log("GeoLocation is Available!");
+    } else {
+    console.log("No");;
+    }}
 
   let options = {
     enableHighAccuracy: true,
@@ -80,13 +80,17 @@ const Weather = ({ REACT_APP_API_KEY }) => {
   }, []);
 
 
+
+  
+
+
   return (
     <div className="weather">
-      {currentWeather && <CurrentForecast currentWeather={currentWeather} />}
+      {currentWeather && <CurrentForecast currentWeather={currentWeather}time={time}/>}
 
-      {forecast && <Forecast forecast={forecast} />}
+      {forecast && <Forecast forecast={forecast}time={time} />}
 
-      {currentWeather && <CurrentHighlights currentWeather={currentWeather} />}
+      {currentWeather && <CurrentHighlights currentWeather={currentWeather}time={time} />}
 
     </div>
   );

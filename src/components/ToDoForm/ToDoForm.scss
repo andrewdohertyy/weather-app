@@ -1,0 +1,16 @@
+.form {
+    color: white;
+
+    &__button {
+        border-radius: 4rem;
+        padding: 1rem;
+        margin: 1rem;
+        border: none;
+    }
+    &__input {
+        padding: 1.5rem;
+        font-size: large;
+        border-radius: 1rem;
+        border: none;
+    }
+}
