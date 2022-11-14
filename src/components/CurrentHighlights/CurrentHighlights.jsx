@@ -28,7 +28,7 @@ const CurrentHighlights = ({ currentWeather, time }) => {
     timeID = "night";
     otherID = "ngt";
   } else {
-    timeID = "dayy";
+    timeID = "daytime";
     otherID= "dy";
   }
 

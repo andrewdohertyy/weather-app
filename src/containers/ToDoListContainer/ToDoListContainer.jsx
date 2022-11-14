@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import ToDoForm from '../../components/ToDoForm/ToDoForm';
 import "./ToDoListContainer.scss"
 
-const ToDoList = () => {
+const ToDoList = ({time}) => {
 
   const [todos, setTodos] = useState([]);
 
@@ -16,13 +16,20 @@ const ToDoList = () => {
     setTodos(todos.filter(todo => todo.id !== id))
   }
 
-  // useEffect(() => {
+  let timeID;
+  
 
-  // }, [])
+  if (time >= 17 || time <= 6) {
+    timeID = "night";
+    
+  } else {
+    timeID = "day";
+    
+  }
 
 
   return (
-    <div className='container'>
+    <div className='container' id={timeID}>
       <h1 className='container__title'>TO-DO LIST</h1>
       <ToDoForm addTodo={addTodo}/>
       <List todos={todos}  removeTodos={removeTodos}/>
