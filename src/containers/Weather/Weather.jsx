@@ -5,23 +5,38 @@ import CurrentForecast from "../../components/CurrentForecast/CurrentForecast";
 import CurrentHighlights from "../../components/CurrentHighlights/CurrentHighlights";
 import Forecast from "../../components/Forecast/Forecast";
 
-const Weather = ({REACT_APP_API_KEY, time, latitude, longitude, getLocation}) => {
+const Weather = ({REACT_APP_API_KEY, time}) => {
   const [currentWeather, setCurrentWeather] = useState("");
   const [forecast, setForecast] = useState("");
+  const [userLocation, setUserLocation] = useState({latitude:0,longitude:0});
 
-  console.log(REACT_APP_API_KEY, "b9bb29b9157b427095b130730221411");
-  console.log(latitude);
-  console.log(longitude);
+
+  console.log(REACT_APP_API_KEY);
+
+
+  const getLocation = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      setUserLocation({latitude, longitude});
+      console.log(userLocation);
+    },
+    (error) => {
+
+    })
+  }
+
+  // console.log(REACT_APP_API_KEY);
+  console.log(userLocation);
 
   const getCurrentWeather = async () => {
-    if(latitude){
+    getLocation();
       const res = await fetch(
-        `http://api.weatherapi.com/v1/current.json?key=b9bb29b9157b427095b130730221411&q=${latitude},${longitude}&aqi=no`
+        `http://api.weatherapi.com/v1/current.json?key=${REACT_APP_API_KEY}&q=${userLocation.latitude},${userLocation.longitude}&aqi=no`
       );
       const weatherData = await res.json();
       console.log(res);
       setCurrentWeather(weatherData);
-    }
   };
 
   const getForecast = async () => {
@@ -37,7 +52,7 @@ const Weather = ({REACT_APP_API_KEY, time, latitude, longitude, getLocation}) =>
   useEffect(() => {
     getCurrentWeather();
     getForecast();
-    getLocation();
+    
   }, []);
 
   return (

@@ -10,9 +10,6 @@ import { useEffect } from "react";
 
 function App() {
   const { REACT_APP_API_KEY } = process.env;
-  const [crd, setCrd] = useState({});
-
-console.log(process.env.REACT_APP_API_KEY, "APP");
 
   let appClass = "";
   let time;
@@ -26,58 +23,6 @@ console.log(process.env.REACT_APP_API_KEY, "APP");
     appClass = "day";
   }
 
-  const componentDidMount = () => {
-    if (navigator.geolocation) {
-      console.log("GeoLocation is Available!");
-    } else {
-      console.log("No");
-    }
-  };
-
-  let options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0,
-  };
-
-  const success = (pos) => {
-    let crd = pos.coords;
-    setCrd(crd);
-    console.log("Your current position is:");
-    console.log(`Latitude : ${crd.latitude}`);
-    console.log(`Longitude: ${crd.longitude}`);
-    console.log(`More or less ${crd.accuracy} meters.`);
-  };
-
-  const errors = (err) => {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
-  };
-
-  const getLocation = () => {
-    if (navigator.geolocation) {
-      navigator.permissions
-        .query({ name: "geolocation" })
-        .then(function (result) {
-          if (result.state === "granted") {
-            navigator.geolocation.getCurrentPosition(success);
-          } else if (result.state === "prompt") {
-            navigator.geolocation.getCurrentPosition(success, errors, options);
-          } else if (result.state === "denied") {
-          }
-          result.onchange = () => {
-            console.log(result.state);
-          };
-        });
-    } else {
-      alert("Sorry Not available!");
-    }
-  };
-
-  // useEffect(() => {
-    
-  // }, []);
-
-
   return (
     <body className={appClass}>
       <Router>
@@ -90,9 +35,6 @@ console.log(process.env.REACT_APP_API_KEY, "APP");
                 <Weather
                   REACT_APP_API_KEY={REACT_APP_API_KEY}
                   time={time}
-                  longitude={crd.longitude} 
-                  latitude={crd.latitude}
-                  getLocation={getLocation}
                 />
               }
             ></Route>
