@@ -20,17 +20,12 @@ const Weather = ({REACT_APP_API_KEY, time}) => {
       const longitude = position.coords.longitude;
       setUserLocation({latitude, longitude});
       console.log(userLocation);
-    },
-    (error) => {
-
-    })
-  }
+    })}
 
   // console.log(REACT_APP_API_KEY);
   console.log(userLocation);
 
   const getCurrentWeather = async () => {
-    getLocation();
       const res = await fetch(
         `http://api.weatherapi.com/v1/current.json?key=${REACT_APP_API_KEY}&q=${userLocation.latitude},${userLocation.longitude}&aqi=no`
       );
@@ -41,7 +36,7 @@ const Weather = ({REACT_APP_API_KEY, time}) => {
 
   const getForecast = async () => {
     const res = await fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=b9bb29b9157b427095b130730221411&q=Manchester&days=7&aqi=yes&alerts=yes`
+      `http://api.weatherapi.com/v1/forecast.json?key=${REACT_APP_API_KEY}&q=${userLocation.latitude},${userLocation.longitude}&days=7&aqi=yes&alerts=yes`
     );
     const forecastData = await res.json();
     console.log(res);
@@ -50,10 +45,11 @@ const Weather = ({REACT_APP_API_KEY, time}) => {
 
 
   useEffect(() => {
+    getLocation();
     getCurrentWeather();
     getForecast();
     
-  }, []);
+  }, [userLocation.latitude, userLocation.longitude]);
 
   return (
     <div className="weather">
