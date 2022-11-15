@@ -1,6 +1,6 @@
 import React from 'react'
 import List from '../../components/List /List'
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ToDoForm from '../../components/ToDoForm/ToDoForm';
 import "./ToDoListContainer.scss"
 

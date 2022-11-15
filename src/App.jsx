@@ -3,13 +3,20 @@ import Nav from "./containers/Nav/Nav";
 import Weather from "./containers/Weather/Weather";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ToDoListContainer from "./containers/ToDoListContainer/ToDoListContainer";
-import { React, useState } from "react";
-import { useEffect } from "react";
-// import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
-// dotenv.config()
+import { React } from "react";
+import { useState, useEffect } from "react";
+
 
 function App() {
   const { REACT_APP_API_KEY } = process.env;
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() =>{
+      setLoading(false)
+    }, 2500)
+  },[])
+ 
 
   let appClass = "";
   let time;
@@ -23,8 +30,15 @@ function App() {
     appClass = "day";
   }
 
+
+  // useEffect(() => {
+  //   setLoading(true)
+  // }, [])
+
   return (
     <body className={appClass}>
+
+      <div>
       <Router>
         <div>
           <Nav time={time} />
@@ -35,6 +49,8 @@ function App() {
                 <Weather
                   REACT_APP_API_KEY={REACT_APP_API_KEY}
                   time={time}
+                  setLoading={setLoading}
+                  loading={loading}
                 />
               }
             ></Route>
@@ -45,6 +61,7 @@ function App() {
           </Routes>
         </div>
       </Router>
+      </div>
     </body>
   );
 }

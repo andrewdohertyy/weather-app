@@ -1,12 +1,10 @@
 import React from 'react'
-import ToDoList from '../../containers/ToDoListContainer/ToDoListContainer'
 import ToDo from '../ToDo/ToDo'
 import "./List.scss"
 
 const List = ({todos, removeTodos}) => {
 
-
-  return (
+return (
     <div className='list'>
         <ul>
             {todos.map(todo => (<ToDo key={todo.id} todo={todo} removeTodos={removeTodos}/>))}
