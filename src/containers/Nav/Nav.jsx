@@ -28,7 +28,7 @@ const Nav = ({time}) => {
       <ul className="nav__list">
         <a className="nav__item" href="/">Weather</a>
         <a className="nav__item" href="/todo">To-do-list</a>
-        <a className="nav__item" href="/">Maps</a>
+        <a className="nav__item" href="/sports">Upcoming Sports</a>
       </ul>
       </div>
     </div>

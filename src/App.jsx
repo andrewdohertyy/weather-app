@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ToDoListContainer from "./containers/ToDoListContainer/ToDoListContainer";
 import { React } from "react";
 import { useState } from "react";
+import SportsContainer from "./containers/SportsContainer/SportsContainer";
 
 function App() {
   const { REACT_APP_API_KEY } = process.env;
@@ -43,6 +44,10 @@ function App() {
               <Route
                 path="/todo"
                 element={<ToDoListContainer time={time} />}
+              ></Route>
+              <Route
+                path="/sports"
+                element={<SportsContainer REACT_APP_API_KEY={REACT_APP_API_KEY} time={time} />}
               ></Route>
             </Routes>
           </div>

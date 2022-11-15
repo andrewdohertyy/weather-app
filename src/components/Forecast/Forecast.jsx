@@ -7,6 +7,8 @@ let forecastArr = forecast.forecast.forecastday;
 
 console.log(forecastArr);
 
+console.log(forecast);
+
 let timeID;
 
 
