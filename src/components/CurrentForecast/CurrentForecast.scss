@@ -1,37 +1,45 @@
 .current-forecast {
-    display: flex ;
-    flex-direction: column;
-    border: solid 1px black;
-    border-radius: 1rem;
-    margin: 1.5rem;
-    width: 46%;
-    height: 60vh;
-    color: white;
-    text-align: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  border: solid 1px black;
+  border-radius: 1rem;
+  margin: 1.5rem;
+  width: 46%;
+  height: 60vh;
+  color: white;
+  text-align: center;
+  align-items: center;
 
-
-    &__image.child {
-        width: 7.5rem; 
-        height: auto;
-        margin-top: 4rem;
-    }
-    &__header {
-        font-size: xx-large;
-    }
-
+  &__image.child {
+    width: 7.5rem;
+    height: auto;
+    margin-top: 4rem;
+  }
+  &__header {
+    font-size: xx-large;
+  }
 }
 
 .child {
-    margin: 1rem;
+  margin: 1rem;
 }
 
 #day {
-    background-color: skyblue;
+  background-color: skyblue;
 }
 
 #night {
-    background: #0F2027;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #0f2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

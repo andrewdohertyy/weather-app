@@ -6,12 +6,10 @@ import ToDoListContainer from "./containers/ToDoListContainer/ToDoListContainer"
 import { React } from "react";
 import { useState } from "react";
 
-
 function App() {
   const { REACT_APP_API_KEY } = process.env;
   const [loading, setLoading] = useState(true);
 
- 
   let appClass = "";
   let time;
 
@@ -26,30 +24,29 @@ function App() {
 
   return (
     <body className={appClass}>
-
       <div>
-      <Router>
-        <div>
-          <Nav time={time} />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Weather
-                  REACT_APP_API_KEY={REACT_APP_API_KEY}
-                  time={time}
-                  setLoading={setLoading}
-                  loading={loading}
-                />
-              }
-            ></Route>
-            <Route
-              path="/todo"
-              element={<ToDoListContainer time={time} />}
-            ></Route>
-          </Routes>
-        </div>
-      </Router>
+        <Router>
+          <div>
+            <Nav time={time} />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Weather
+                    REACT_APP_API_KEY={REACT_APP_API_KEY}
+                    time={time}
+                    setLoading={setLoading}
+                    loading={loading}
+                  />
+                }
+              ></Route>
+              <Route
+                path="/todo"
+                element={<ToDoListContainer time={time} />}
+              ></Route>
+            </Routes>
+          </div>
+        </Router>
       </div>
     </body>
   );

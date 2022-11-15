@@ -7,20 +7,21 @@ import Forecast from "../../components/Forecast/Forecast";
 import FadeLoader from "react-spinners/FadeLoader";
 
 const Weather = ({ REACT_APP_API_KEY, time, setLoading, loading }) => {
-  const [currentWeather, setCurrentWeather] = useState("");
-  const [forecast, setForecast] = useState("");
   const [userLocation, setUserLocation] = useState({
     latitude: 0,
     longitude: 0,
   });
+  const [currentWeather, setCurrentWeather] = useState("");
+  const [forecast, setForecast] = useState("");
 
-  const getLocation = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const latitude = position.coords.latitude;
-      const longitude = position.coords.longitude;
-      setUserLocation({ latitude, longitude });
-    });
-  };
+    const getLocation = () => {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        setUserLocation({ latitude, longitude });
+        setLoading(false)
+      });
+    };
 
   const getCurrentWeather = async () => {
     const res = await fetch(
@@ -28,9 +29,7 @@ const Weather = ({ REACT_APP_API_KEY, time, setLoading, loading }) => {
     );
     const weatherData = await res.json();
     setCurrentWeather(weatherData);
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000)
+    
   };
 
   const getForecast = async () => {
@@ -39,12 +38,13 @@ const Weather = ({ REACT_APP_API_KEY, time, setLoading, loading }) => {
     );
     const forecastData = await res.json();
     setForecast(forecastData);
+    
   };
 
   useEffect(() => {
-    getLocation();
     getCurrentWeather();
     getForecast();
+    getLocation()
   }, [userLocation.latitude, userLocation.longitude]);
 
   return (
