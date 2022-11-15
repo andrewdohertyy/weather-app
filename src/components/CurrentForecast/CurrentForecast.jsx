@@ -8,7 +8,6 @@ const CurrentForecast = ({currentWeather, time}) => {
   let condition=currentWeather.current.condition.text
   let location=currentWeather.location.region
   let country=currentWeather.location.country
-  let date=currentWeather.location.localtime
   let img= currentWeather.current.condition.icon
 
   let timeID;
@@ -24,13 +23,9 @@ const CurrentForecast = ({currentWeather, time}) => {
     <div className="current-forecast" id={timeID}>
       <img className='current-forecast__image child' src={img} alt="" />
       <h1 className='current-forecast__location child'>{location},   {country} </h1>
-      <h2 className='current-forecast__header child '> {tempc} °C   </h2>
-      <h2 className='current-forecast__header child'> {tempf} °F   </h2>
-      <h3 className='current-forecast__description child'>Its {condition} outside today.</h3>
-      
-      
-      <h3 className='current-forecast__date child'>Last Checked: {date}</h3>
-    </div>
+      <h2 className='current-forecast__description child'>Its {condition} outside today.</h2>
+      <h2 className='current-forecast__header child '> {tempc}°C or {tempf}°F    </h2>
+   </div>
   )
 }
 

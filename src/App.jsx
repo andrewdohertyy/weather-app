@@ -4,20 +4,14 @@ import Weather from "./containers/Weather/Weather";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ToDoListContainer from "./containers/ToDoListContainer/ToDoListContainer";
 import { React } from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 
 function App() {
   const { REACT_APP_API_KEY } = process.env;
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() =>{
-      setLoading(false)
-    }, 2500)
-  },[])
  
-
   let appClass = "";
   let time;
 
@@ -29,11 +23,6 @@ function App() {
   } else {
     appClass = "day";
   }
-
-
-  // useEffect(() => {
-  //   setLoading(true)
-  // }, [])
 
   return (
     <body className={appClass}>

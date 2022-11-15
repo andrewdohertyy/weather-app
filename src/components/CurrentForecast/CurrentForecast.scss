@@ -7,12 +7,17 @@
     width: 46%;
     height: 60vh;
     color: white;
+    text-align: center;
+    align-items: center;
 
 
-    &__image {
-        width: 5rem; 
+    &__image.child {
+        width: 7.5rem; 
         height: auto;
-        margin: 1.5rem;
+        margin-top: 4rem;
+    }
+    &__header {
+        font-size: xx-large;
     }
 
 }

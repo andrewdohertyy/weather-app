@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import CurrentForecast from "../../components/CurrentForecast/CurrentForecast";
 import CurrentHighlights from "../../components/CurrentHighlights/CurrentHighlights";
 import Forecast from "../../components/Forecast/Forecast";
-import ClipLoader from "react-spinners/ClipLoader";
+import FadeLoader from "react-spinners/FadeLoader";
 
 const Weather = ({ REACT_APP_API_KEY, time, setLoading, loading }) => {
   const [currentWeather, setCurrentWeather] = useState("");
@@ -19,31 +19,27 @@ const Weather = ({ REACT_APP_API_KEY, time, setLoading, loading }) => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
       setUserLocation({ latitude, longitude });
-      console.log(userLocation);
     });
   };
 
   const getCurrentWeather = async () => {
-    // setLoading(true)
     const res = await fetch(
       `http://api.weatherapi.com/v1/current.json?key=${REACT_APP_API_KEY}&q=${userLocation.latitude},${userLocation.longitude}&aqi=no`
     );
     const weatherData = await res.json();
     setCurrentWeather(weatherData);
-    // setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000)
   };
 
   const getForecast = async () => {
-    // setLoading(true)
     const res = await fetch(
       `http://api.weatherapi.com/v1/forecast.json?key=${REACT_APP_API_KEY}&q=${userLocation.latitude},${userLocation.longitude}&days=7&aqi=yes&alerts=yes`
     );
     const forecastData = await res.json();
     setForecast(forecastData);
-    // setLoading(false);
   };
-
- 
 
   useEffect(() => {
     getLocation();
@@ -52,12 +48,12 @@ const Weather = ({ REACT_APP_API_KEY, time, setLoading, loading }) => {
   }, [userLocation.latitude, userLocation.longitude]);
 
   return (
-    <div>
+    <div className="loading">
       {loading ? (
-        <ClipLoader
-          color={"F37A24"}
+        <FadeLoader
+          color={"#FFFF00"}
           loading={loading}
-          size={150}
+          size={500}
           aria-label="Loading Spinner"
           data-testid="loader"
         />
