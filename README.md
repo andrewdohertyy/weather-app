@@ -4,7 +4,7 @@
 
 <p align="center">In this latest project i have built a multi use app with a weather API. The user can be greeted by the current weather, forecast and lots of highlights from todays weather. They also have the option to use the todo list and check the local football matches</p>
 
-<p>As well as all of this the app will load the weather dependent on user location and depending on the time of the day the user can be greeted by different colours and a new message.</p>
+<p>As well as all of this the app will load the weather dependent on user location and depending on the time of the day the user can be greeted by different colours and a new message</p>
 
 <img align="center" src="./src/assets/dark.png" width="33%" >
 <img align="center" src="./src/assets/football.png" width="33%" >
