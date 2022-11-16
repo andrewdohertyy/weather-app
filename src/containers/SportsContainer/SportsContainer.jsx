@@ -1,20 +1,23 @@
 import React from "react";
 import "./SportsContainer.scss";
 import { useState, useEffect } from "react";
+import { FadeLoader } from "react-spinners";
 
-const SportsContainer = ({ time, REACT_APP_API_KEY }) => {
+const SportsContainer = ({ time, REACT_APP_API_KEY, loading, setLoading }) => {
   const [sports, setSports] = useState("");
   let timeID;
-  let footballArr = sports.football;
 
   const getCurrentSports = async () => {
+    setLoading(true);
     const res = await fetch(
-      `http://api.weatherapi.com/v1/sports.json?key=${REACT_APP_API_KEY}&q=London`
+      `https://api.weatherapi.com/v1/sports.json?key=${REACT_APP_API_KEY}&q=London`
     );
     const sportsData = await res.json();
     setSports(sportsData);
+    setLoading(false);
   };
 
+  let footballArr = sports.football;
   console.log(sports.football);
 
   useEffect(() => {
@@ -28,21 +31,34 @@ const SportsContainer = ({ time, REACT_APP_API_KEY }) => {
   }
 
   const sportsJSX = (footballArr) => {
-    return footballArr.map((item, index) => {
+    return footballArr.map((sport, index) => {
       return (
-        <div className="forecast__card" key={index}>
-          <p className="forecast__child"> {item.match}</p>
-          <p className="forecast__child"> {item.stadium}</p>
-          <p className="forecast__child"> {item.start}</p>
+        <div className="sports__container" key={index}>
+          <p className="sports__child match"> {sport.match}</p>
+          <p className="sports__child"> {sport.stadium}</p>
+          <p className="sports__child"> {sport.tournament}</p>
+          <p className="sports__child"> {sport.start}</p>
         </div>
       );
     });
   };
 
   return (
-    <div className="sports__container" id={timeID}>
-      <h1>Football Matches</h1>
-      {/* <div> {sportsJSX(footballArr)}</div> */}
+    <div className="sports">
+      {loading ? (
+        <FadeLoader
+          color={"#FFFF00"}
+          loading={loading}
+          size={500}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      ) : (
+        <div  className="sports__card" id={timeID}>
+          <h1 className="sports__title">Football Matches ⚽️</h1>
+          <div> {sportsJSX(footballArr)}</div>
+        </div>
+      )}
     </div>
   );
 };

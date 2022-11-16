@@ -47,7 +47,7 @@ function App() {
               ></Route>
               <Route
                 path="/sports"
-                element={<SportsContainer REACT_APP_API_KEY={REACT_APP_API_KEY} time={time} />}
+                element={<SportsContainer REACT_APP_API_KEY={REACT_APP_API_KEY} time={time} loading={loading} setLoading={setLoading} />}
               ></Route>
             </Routes>
           </div>

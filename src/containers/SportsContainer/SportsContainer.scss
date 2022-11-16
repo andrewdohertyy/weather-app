@@ -1,22 +1,43 @@
 .sports {
 
-    &__container {
-        margin: 6rem;
-        margin-left: 8rem;
-        margin-right: 8rem;
-        color: white;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 6rem;
+    margin-left: 8rem;
+    margin-right: 8rem;
+    border-radius: 1rem;
+
+    &__card {
         border-radius: 1rem;
+    }
+
+    &__container {
+       border: solid 1px white;
+       border-radius: 1rem;
+       
         text-align: center;
-        height: 110vh;
-        margin-bottom: 0;
+        margin: 2rem;
         overflow:scroll;
-        border: solid black 1px;
     }
   
     &__title {
         margin: 2rem;
         font-size: xxx-large;
     }
+    &__child {
+        margin: 3rem;
+        font-size: xx-large;
+    }
+    &__title {
+        text-align: center;
+        padding: 4rem;
+    }
+}
+
+.match {
+    font-weight: bold;
 }
 
 #daytime {
@@ -27,4 +48,11 @@
     background: #0F2027;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+@media screen and (max-width: 768px) {
+    .container {
+        height: 725px;
+    }
 }
