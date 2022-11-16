@@ -25,7 +25,7 @@ const Weather = ({ REACT_APP_API_KEY, time, setLoading, loading }) => {
 
   const getCurrentWeather = async () => {
     const res = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=${REACT_APP_API_KEY}&q=${userLocation.latitude},${userLocation.longitude}&aqi=no`
+      `https://api.weatherapi.com/v1/current.json?key=${REACT_APP_API_KEY}&q=${userLocation.latitude},${userLocation.longitude}&aqi=no`
     );
     const weatherData = await res.json();
     setCurrentWeather(weatherData);
@@ -34,7 +34,7 @@ const Weather = ({ REACT_APP_API_KEY, time, setLoading, loading }) => {
 
   const getForecast = async () => {
     const res = await fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=${REACT_APP_API_KEY}&q=${userLocation.latitude},${userLocation.longitude}&days=7&aqi=yes&alerts=yes`
+      `https://api.weatherapi.com/v1/forecast.json?key=${REACT_APP_API_KEY}&q=${userLocation.latitude},${userLocation.longitude}&days=7&aqi=yes&alerts=yes`
     );
     const forecastData = await res.json();
     setForecast(forecastData);
