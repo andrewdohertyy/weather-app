@@ -41,6 +41,7 @@ const SportsContainer = ({ time, REACT_APP_API_KEY }) => {
 
   return (
     <div className="sports__container" id={timeID}>
+      <h1>Football Matches</h1>
       {/* <div> {sportsJSX(footballArr)}</div> */}
     </div>
   );

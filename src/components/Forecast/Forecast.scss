@@ -10,8 +10,8 @@
   text-align: center;
   align-items: center;
 
-  &__image {
-    width: 6.5rem;
+  &__image.child {
+    width: 3rem;
     height: auto;
     margin: 0.5rem;
   }
@@ -68,4 +68,27 @@
     #203a43,
     #0f2027
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.forecast__image{
+  width: 5rem;
+  height: auto;
+}
+
+
+@media screen and (max-width:1024px){
+  .forecast {
+    width: 40%;
+
+    &__container {
+      display: flex;
+      overflow-x: scroll;
+      overflow-y: scroll;
+      flex-direction: row;
+      width: 80%;
+    }
+    &__card {
+      border: none;
+    }
+  }
 }
