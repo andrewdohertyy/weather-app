@@ -16,6 +16,7 @@ function App() {
 
   let today = new Date();
   time = Number(today.getHours());
+  time = 18
 
   if (time >= 17 || time <= 6) {
     appClass = "night";
